@@ -22,18 +22,27 @@ with open(output_text_file, 'a') as output_text_file:
                 
                 """ Get the test case ID and the external ID """
                 if(each_page == 0):
-                    # set_of_test_steps = pdfreader.getPage(each_page).extractText()
                     test_case_ID, test_step_description, input_data, expected_result, external_ID, description = set_of_test_steps[0].split('|')
                     test_case_ID_holder = test_case_ID.lstrip().rstrip()
                     external_ID_holder = external_ID.lstrip().rstrip()
                     
                 """ Format the test steps and write them to the output file """    
                 for each_test_step in set_of_test_steps:
-                    test_case_ID, test_step_description, input_data, expected_result, external_ID, description = each_test_step.split('|')
+                    test_case_ID, \
+                    test_step_description, \
+                    input_data, expected_result, \
+                    external_ID, \
+                    description = each_test_step.split('|')
                     step_counter += 1
                     #test_step = f'{step_counter} | {test_case_ID_holder} | {test_step_description} | {input_data} | {expected_result} | {external_ID_holder}'
-                    test_step = str(step_counter) + "|" + test_case_ID_holder + "|" + test_step_description.lstrip().rstrip() + "|" + expected_result + "|" + input_data + "|" + external_ID_holder + "|" + test_case_ID_holder
+                    test_step = str(step_counter) + "|" + \
+                                test_case_ID_holder + "|" + \
+                                test_step_description.lstrip().rstrip() + "|" + \
+                                expected_result + "|" + \
+                                input_data + "|" + \
+                                external_ID_holder + "|" + \
+                                test_case_ID_holder
                     print(test_step)
                     print("========================================================================")
                     output_text_file.write(test_step + "\n")
-                    #output_text_file.write(test_step)
+
