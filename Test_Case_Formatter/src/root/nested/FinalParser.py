@@ -11,8 +11,6 @@ output_text_file = "/Users/NguyenJ.MININT-3LV3JTL/TestCaseFromPDFToTextOutput/Ou
 os.chdir(input_directory)
 set_of_all_PDF_input_files = os.listdir()
 number_of_Files_to_be_Processed = len(set_of_all_PDF_input_files)
-test_case_temp =''
-description = ''
 file_counter = 0
 with open(output_text_file, 'a') as output_text_file:
     output_text_file.write("step number | Name | Step | Result | Testdata | ExternalId | Description \n")
